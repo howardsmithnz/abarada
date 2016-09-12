@@ -17,7 +17,7 @@ var knex = require('knex')({
   useNullAsDefault: true
 })
 
-var db = require('./db.js')(knex)
+var db = require(__dirname + '/db.js')(knex)
 
 // ----- set up middleware ----- //
 
@@ -42,7 +42,7 @@ app.use(function (req, res, next) {
   next()
 })
 // ----- set up static files ----- //
-app.use(express.static('public'))
+app.use(express.static(__dirname + 'public'))
 // ----- error handling ----- //
 app.use(function (err, req, res, next) {
   console.error(err.stack)
