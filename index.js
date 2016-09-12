@@ -12,7 +12,7 @@ var app = express()
 var knex = require('knex')({
   client: 'sqlite3',
   connection: {
-    filename: './data/abarada_db.sqlite'
+    filename: __dirname + '/data/abarada_db.sqlite'
   },
   useNullAsDefault: true
 })
