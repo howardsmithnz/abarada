@@ -20,7 +20,7 @@ var knex = require('knex')({
 var db = require(__dirname + '/db.js')(knex)
 
 // ----- set up middleware ----- //
-
+app.set('port', (process.env.PORT || 5000))
 // ----- handlebars ----- //
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
@@ -152,7 +152,7 @@ app.get('/https_test', function (req, res) {
 https.createServer({
   key: fs.readFileSync(__dirname + '/key.pem'),
   cert: fs.readFileSync(__dirname + '/cert.pem')
-}, app).listen(5000, function () {
+}, app).listen(app.get('port'), function () {
   console.log('server-index.js> SECURE abarada app listening on port 5000')
 })
 
