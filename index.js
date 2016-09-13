@@ -143,18 +143,18 @@ app.get('/https_test', function (req, res) {
 
 // ----- set up port on server ----- //
 
-// app.listen(3000, function () {
-//   console.log('abarada app listening on port 3000!')
-// })
+app.listen(app.get('port'), function () {
+  console.log('abarada app listening on port ', app.get('port'))
+})
 
 // ----- HTTPS server ----- //
 
-https.createServer({
-  key: fs.readFileSync(__dirname + '/key.pem'),
-  cert: fs.readFileSync(__dirname + '/cert.pem')
-}, app).listen(app.get('port'), function () {
-  console.log('server-index.js> SECURE abarada app listening on port ', app.get('port'))
-})
+// https.createServer({
+//   key: fs.readFileSync(__dirname + '/key.pem'),
+//   cert: fs.readFileSync(__dirname + '/cert.pem')
+// }, app).listen(app.get('port'), function () {
+//   console.log('server-index.js> SECURE abarada app listening on port ', app.get('port'))
+// })
 
 // ----- bogus function for testing ----- //
 
